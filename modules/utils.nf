@@ -177,7 +177,7 @@ process uploadToBucket {
 process uploadToS3 {
     tag {prefix}
     label 'oci_pipe'
-    publishDir "s3://mmminbound/"
+    publishDir {params.externalS3Bucket}
 
     input:
     tuple(val(prefix), path("${prefix}.fasta"), path("${prefix}.bam"), path("${prefix}.vcf"), path("${prefix}.json"))
